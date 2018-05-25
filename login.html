@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>请登录</title>
+	
+	<style type="text/css">
+		/*reset*/
+		body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,tr,th,td,img,div,dl,dt,dd,input,span{margin: 0;padding: 0;}
+		img{border: none;}
+		li{list-style: none;}
+		input,select,textarea{outline: none;border: none;}
+		textarea{resize: none;}
+		a{text-decoration: none;}
+		.leftArea{float: left;}
+		.rightArea{float: right;}
+		.clearfix:after{content:"";display:block;clear:both;}
+		.clearfix{zoom:1;}
+		/*main*/
+		body{
+			height: 100%;
+		}
+		.header{
+			height:18%;
+			position:relative;
+		}
+		.header img{
+			position: absolute;
+		}
+		.header .sysLogo_03{
+			left:18%;
+			top:23%;
+		}
+		.header .sysName_03{
+			left:24%;
+			top:32%;
+		}
+		.header .unicomLogo_03{
+			right:18%;
+			top:23%;
+		}
+		.main{
+			background: url(images/loginMain_02.png) no-repeat center center;
+			background-size: 100% ;
+			position: relative;
+		}
+		.main .login{
+			width:21%;
+			height:72%;
+			border:3px solid #e7a700;
+			position:absolute;
+			right:18%;
+			top:12%;
+			background-color: #fdecbe;
+			border-radius: 2px;
+		}
+		.main .login .title{
+			width: 80%;
+			border-bottom: 2px solid #db251c;
+			text-align: center;
+			margin: 1.5% auto 5.5%;
+			color: #db251c;
+			font-size: 25px;
+			padding: 2.5%;
+			font-family: "Microsoft YaHei";
+		}
+		.main .login form{
+			width: 88%;
+			height: 65%;
+			margin: 0 auto;
+		}	
+		input{
+			height: 20%;
+			width: 100%;
+			margin: 0 auto;
+			margin-bottom: 3%;
+			border-radius: 4px;			
+			border:1px solid #ccc;
+			padding-left: 3px;
+			font-size: 10px;
+			font-family: "Microsoft YaHei";
+		}
+		input::-webkit-input-placeholder { /* WebKit browsers */ 
+		font-size: 5px;
+		} 
+		input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+		font-size: 10px; 
+		} 
+		input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+		font-size: 10px; 
+		} 
+		input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+		font-size: 10px; 
+		} 
+		.main .login .security{
+			width: 32%;
+		}
+		form img{
+			height: 20%;
+			display: block;
+			position: relative;
+			left: 2px;
+		}
+		span{
+			font-size: 6px;
+			color:#db251c;
+			text-decoration: underline;
+			position: relative;
+			left: 2px;
+			top: 13%;
+		}
+		.main .login .submit{
+			background-color:#db251c;
+			height: 25%;
+			border:none;
+			color: white;
+			margin-top: 2.5%;
+			font-family: "Microsoft YaHei";
+			font-size: 15px;
+		}
+		.footer{
+			width: 64%;
+			margin: 1.5% auto;
+			border-top: 2px solid #db251c;
+			padding-top: 1%;
+		}
+	</style>
+
+</head>
+	
+<body>
+	<!-- 头部 -->
+	<div class="header">
+		<img src="images/sysLogo_03.png" alt="systemLogo" width="80px" class="sysLogo_03">
+		<img src="images/sysName_03.png" alt="systemName" width="450px" class="sysName_03">
+		<img src="images/unicomLogo_03.png" alt="unicomLogo" width="134px" class="unicomLogo_03">
+	</div>
+
+	<!-- 主体 -->
+	<div class="main" id="main">
+		<div class="login">
+			<div class="title">
+				用户登录
+			</div>
+			<form>
+				<input type="text" name="username" placeholder="请输入账号">
+				<input type="password" name="password" placeholder="请输入密码">
+				<input type="text" name="security" placeholder="请输入验证码" class="security leftArea">
+				<img src="images/security_03.png" class="leftArea">
+				<span class="tips leftArea">看不清,换一张</span>
+				<input type="submit" name="submit" value="登录" class="submit">
+			</form>
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div class="footer">
+		<p><strong>研发单位</strong>&nbsp;&nbsp;&nbsp;广东联通信息化事业部</p>
+	</div>
+
+	<script type="text/javascript">
+		function setBodyHeight() {
+			var screenHeight = document.documentElement.clientHeight;
+			var screenWidth = document.documentElement.clientWidth;
+			console.log(screenHeight);
+			document.getElementsByTagName('html')[0].style['height'] = screenHeight + 'px'; 
+			//注意这里因为html标签从一开始就加载了，所以这句js写在head里也有效
+			document.getElementById('main').style['height'] = screenWidth *601/1920 +'px';
+			//注意这行代码需要在页面加载了id为main的元素才有效，所以需要放在最后面
+		}
+		setBodyHeight();
+		window.addEventListener('resize', function() {
+            setBodyHeight();
+        }, false);
+	</script>
+</body>
+</html>
